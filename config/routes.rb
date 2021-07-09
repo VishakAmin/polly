@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # get '*path', to: 'home#index', via: :all
   # resources :polls, except: %i[new edit]
   resources :polls, only: %i[index create show update destroy]
+  resources :users, only: %i[create index]
+
 
   root "home#index"
   get '*path', to: 'home#index', via: :all
