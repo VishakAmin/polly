@@ -8,7 +8,7 @@ class PollsController < ApplicationController
   def create
     poll = Poll.new(poll_params)
     if poll.save
-      render status: :ok, json: {notice: 'Poll was created Succesfully'}
+      render status: :ok, json: {notice: t('successfully_created')}
     else
       error = poll.errors.full_message.to_sentence
       render status: :unprocessable_entity, json: { errors: errors  }
