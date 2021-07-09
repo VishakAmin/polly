@@ -6,7 +6,11 @@ const PollList = ({ polls_data }) => {
   const history = useHistory();
 
   const showpolls = id => {
-    history.push(`poll/${id}/show`);
+    history.push(`polls/${id}/show`);
+  };
+
+  const updatePolls = id => {
+    history.push(`polls/${id}/edit`);
   };
 
   return (
@@ -18,6 +22,7 @@ const PollList = ({ polls_data }) => {
           onClick={() => showpolls(poll.id)}
         >
           {poll.title}
+          <span className="px-5" onClick={() => updatePolls(poll.id)}></span>
         </li>
       ))}
     </ul>

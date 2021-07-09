@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Container from "components/Container";
 import Button from "components/Button";
 import PollList from "components/Polls/PollsList";
-import PageLoader from "components/PageLoader";
 import pollsApi from "apis/polls";
+import PageLoader from "components/PageLoader";
 import { isNil, isEmpty, either } from "ramda";
 import { logger } from "common/logger";
+
 import useHistory from "react-router-dom";
 
 const Dashboard = ({ history }) => {
