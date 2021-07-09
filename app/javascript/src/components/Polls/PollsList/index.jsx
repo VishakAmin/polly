@@ -16,13 +16,16 @@ const PollList = ({ polls_data }) => {
   return (
     <ul className="ml-8">
       {polls_data.map(poll => (
-        <li
-          key={poll.id}
-          className="purple-300 justify-between items-center"
-          onClick={() => showpolls(poll.id)}
-        >
-          {poll.title}
-          <span className="px-5" onClick={() => updatePolls(poll.id)}></span>
+        <li key={poll.id}>
+          <span
+            className="purple-300 justify-between items-center"
+            onClick={() => showpolls(poll.id)}
+          >
+            {poll.title}
+          </span>
+          <span className="px-5" onClick={() => updatePolls(poll.id)}>
+            Edit
+          </span>
         </li>
       ))}
     </ul>

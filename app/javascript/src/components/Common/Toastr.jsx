@@ -43,7 +43,7 @@ const showErrorToastr = error => {
   });
 };
 
-export const Toastr = {
+const Toastr = {
   success: showToastr,
   error: showErrorToastr,
 };

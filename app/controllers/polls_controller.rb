@@ -20,7 +20,13 @@ class PollsController < ApplicationController
     render status: :ok, json: {poll: @poll}
   end
 
-
+  def update
+    if @poll.update(poll_params)
+      render status: :ok, json: {notice: 'Successfully updated task.'}
+    else
+      render status: :unprocessable_entity, json: {errors: error}
+    end
+  end
 
   private
   
