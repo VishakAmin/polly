@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # root "home#index"
   # get '*path', to: 'home#index', via: :all
   # resources :polls, except: %i[new edit]
-  resources :polls, only: %i[index create show update]
+  resources :polls, only: %i[index create show update destroy]
 
   root "home#index"
   get '*path', to: 'home#index', via: :all

@@ -32,6 +32,15 @@ const Dashboard = ({ history }) => {
     history.push("/create");
   };
 
+  const deletePolls = async id => {
+    try {
+      await pollsApi.destroy(id);
+      await fetchPolls();
+    } catch (error) {
+      logger.error(error);
+    }
+  };
+
   if (loading) {
     return (
       <div>
@@ -54,7 +63,7 @@ const Dashboard = ({ history }) => {
       {either(isNil, isEmpty)(polls) ? (
         <h1 className="text-3xl leading-5 text-center pt-6">NO POLLS.</h1>
       ) : (
-        <PollList polls_data={polls} />
+        <PollList polls_data={polls} delete_Polls={deletePolls} />
       )}
     </Container>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const PollList = ({ polls_data }) => {
+const PollList = ({ polls_data, delete_Polls }) => {
   const history = useHistory();
 
   const showpolls = id => {
@@ -25,6 +25,9 @@ const PollList = ({ polls_data }) => {
           </span>
           <span className="px-5" onClick={() => updatePolls(poll.id)}>
             Edit
+          </span>
+          <span className="px-5" onClick={() => delete_Polls(poll.id)}>
+            Delete
           </span>
         </li>
       ))}
