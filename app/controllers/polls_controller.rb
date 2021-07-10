@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
   before_action :load_poll, only: %i[show update destroy] 
+  before_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
+
 
   def index
     polls = Poll.all
