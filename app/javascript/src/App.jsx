@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import ShowAllPolls from "components/Polls/ShowAllPolls";
 import UpdatePoll from "components/Polls/UpdatePoll";
+import Signup from "components/Authentication/Signup";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path="/create" component={CreatePoll} />
         <Route exact path="/polls/:id/show" component={ShowAllPolls} />
         <Route exact path="/polls/:id/edit" component={UpdatePoll} />
+        <Route exact path="/signup" component={Signup} />
       </Switch>
     </Router>
   );

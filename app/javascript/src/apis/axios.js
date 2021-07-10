@@ -36,7 +36,7 @@ const handleErrorResponse = error => {
     setToLocalStorage({ authToken: null, email: null, userId: null });
   }
   Toastr.error(
-    error.response?.data?.error ||
+    error.response?.data?.errors ||
       error.response?.data?.notice ||
       error.message ||
       error.notice ||
