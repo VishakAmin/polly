@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   before_action :load_poll, only: %i[show update destroy] 
-  before_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
-
+  before_action :authenticate_user_using_x_auth_token, except: :index
+  before_action :authorize_poll, only: %i[update destroy]
 
   def index
     polls = Poll.all
@@ -12,9 +12,10 @@ class PollsController < ApplicationController
     poll = Poll.new(poll_params)
     if poll.save
       render status: :ok, json: {notice: t('successfully_created')}
+      errors = poll.errors.full_messages
     else
-      error = poll.errors.full_message.to_sentence
-      render status: :unprocessable_entity, json: { errors: errors  }
+      render status: :unprocessable_entity, json: { errors: errors }
+
     end 
   end
 
@@ -51,4 +52,7 @@ class PollsController < ApplicationController
       render json: {errors: errors}
   end
 
+  def authorize_poll
+    authorize @poll
+  end
 end

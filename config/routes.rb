@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # resources :polls, except: %i[new edit]
   resources :polls, only: %i[index create show update destroy]
   resources :users, only: %i[create index]
-  resources :sessions, only: [:create, :destroy]
+  resource :sessions, only: %i[create destroy]
 
 
   root "home#index"
