@@ -12,13 +12,19 @@ const UpdatePoll = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
   const { id } = useParams();
+  const [options, setOptions] = useState([
+    { content: "" },
+    { content: "" },
+    { content: "" },
+    { content: "" },
+  ]);
 
   const handleSubmit = async event => {
     event.preventDefault();
     try {
       await pollsApi.update({
         id,
-        payload: { poll: { title } },
+        payload: { poll: { title, options_attributes: options } },
       });
       setLoading(false);
       history.push("/");
@@ -32,6 +38,7 @@ const UpdatePoll = ({ history }) => {
     try {
       const response = await pollsApi.show(id);
       setTitle(response.data.poll.title);
+      setOptions(response.data.options);
       // setUserId(response.data.task.user_id);
     } catch (error) {
       logger.error(error);
@@ -57,8 +64,10 @@ const UpdatePoll = ({ history }) => {
       <PollForm
         type="update"
         title={title}
-        setTitle={setTitle}
+        options={options}
+        setOptions={setOptions}
         loading={loading}
+        setTitle={setTitle}
         handleSubmit={handleSubmit}
       />
     </Container>
