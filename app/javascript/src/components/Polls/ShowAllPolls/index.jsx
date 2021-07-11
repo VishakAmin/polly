@@ -5,7 +5,7 @@ import Container from "components/Container";
 import PageLoader from "components/PageLoader";
 import pollsApi from "apis/polls";
 
-const ShowTask = () => {
+const ShowAllPolls = () => {
   const { id } = useParams();
   const [pollDetails, setPollDetails] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
@@ -38,4 +38,4 @@ const ShowTask = () => {
   );
 };
 
-export default ShowTask;
+export default ShowAllPolls;

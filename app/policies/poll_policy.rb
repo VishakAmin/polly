@@ -7,25 +7,18 @@ class PollPolicy
   end
 
   def show?
-    poll.creator_id == user.id || poll.user_id == user.id
+    true
   end
-
-  def edit?
-    show?
-  end
-
 
   def update?
-    show?
+    poll.user_id == user.id
   end
-
 
   def create?
     true
   end
 
-
   def destroy?
-    poll.creator_id == user.id
+    poll.user_id == user.id
   end
 end

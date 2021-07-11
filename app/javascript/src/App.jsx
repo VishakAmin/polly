@@ -13,6 +13,7 @@ import Login from "components/Authentication/Login";
 import PrivateRoute from "components/Common/PrivateRoute";
 import PageLoader from "components/PageLoader";
 import { getFromLocalStorage } from "helpers/storage";
+import NavBar from "components/NavBar";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,17 +37,28 @@ const App = () => {
   return (
     <Router>
       <ToastContainer />
+      <NavBar isLoggedIn={isLoggedIn} />
       <Switch>
-        <Route exact path="/create" component={CreatePoll} />
-        <Route exact path="/polls/:id/show" component={ShowAllPolls} />
-        <Route exact path="/polls/:id/edit" component={UpdatePoll} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Dashboard} />
         <PrivateRoute
-          path="/"
+          path="/polls/:id/show"
           redirectRoute="/login"
           condition={isLoggedIn}
-          component={Dashboard}
+          component={ShowAllPolls}
+        />
+        <PrivateRoute
+          path="/polls/:id/edit"
+          redirectRoute="/login"
+          condition={isLoggedIn}
+          component={UpdatePoll}
+        />
+        <PrivateRoute
+          path="/create"
+          redirectRoute="/login"
+          condition={isLoggedIn}
+          component={CreatePoll}
         />
       </Switch>
     </Router>

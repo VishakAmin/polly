@@ -1,9 +1,13 @@
 import React from "react";
-import Link from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { getFromLocalStorage } from "helpers/storage";
+import Button from "components/Button";
+import { logger } from "common/logger";
 
 const PollList = ({ polls_data, delete_Polls }) => {
   const history = useHistory();
+
+  const userId = getFromLocalStorage("authUserId");
 
   const showpolls = id => {
     history.push(`polls/${id}/show`);
@@ -14,21 +18,35 @@ const PollList = ({ polls_data, delete_Polls }) => {
   };
 
   return (
-    <ul className="ml-8">
+    <ul className="mb-8">
       {polls_data.map(poll => (
-        <li key={poll.id}>
+        <li
+          key={poll.id}
+          className="flex justify-between items-center py-4 border-b"
+        >
           <span
-            className="purple-300 justify-between items-center"
             onClick={() => showpolls(poll.id)}
+            className="hover:text-purple-700 text-lg"
           >
             {poll.title}
           </span>
-          <span className="px-5" onClick={() => updatePolls(poll.id)}>
-            Edit
-          </span>
-          <span className="px-5" onClick={() => delete_Polls(poll.id)}>
-            Delete
-          </span>
+          {userId == poll.user_id ? (
+            <div className="flex justify-between items-center gap-x-2">
+              <Button
+                size="small"
+                onClick={() => updatePolls(poll.id)}
+                buttonText="Edit"
+                type="link"
+              />
+              <Button
+                size="small"
+                onClick={() => delete_Polls(poll.id)}
+                buttonText="Delete"
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </li>
       ))}
     </ul>

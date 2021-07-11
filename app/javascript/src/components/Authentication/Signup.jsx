@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
 import SignupForm from "components/Authentication/Form/SignupForm";
 import authApi from "apis/auth";
+
 import { logger } from "common/logger";
 
 const Signup = ({ history }) => {
@@ -26,7 +26,7 @@ const Signup = ({ history }) => {
         },
       });
       setLoading(false);
-      history.push("/");
+      history.push("/login");
     } catch (error) {
       setLoading(false);
       logger.error(error);

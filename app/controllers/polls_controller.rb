@@ -1,8 +1,9 @@
 class PollsController < ApplicationController
+  after_action :verify_authorized, only: %i[update destroy]
   before_action :load_poll, only: %i[show update destroy] 
   before_action :authenticate_user_using_x_auth_token, except: :index
   before_action :authorize_poll, only: %i[update destroy]
-
+ 
   def index
     polls = Poll.all
     render status: :ok, json: { polls: polls }
@@ -29,7 +30,7 @@ class PollsController < ApplicationController
     else
       render status: :unprocessable_entity, json: {errors: error}
     end
-  end
+  end  
 
   def destroy 
     if @poll.destroy
@@ -43,7 +44,9 @@ class PollsController < ApplicationController
   private
   
   def poll_params
-    params.require(:poll).permit(:title)
+    params.require(:poll)
+    .permit(:title)
+    .merge(user_id: @current_user.id)
   end
 
   def load_poll
