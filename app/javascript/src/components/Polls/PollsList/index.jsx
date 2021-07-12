@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { getFromLocalStorage } from "helpers/storage";
 import Button from "components/Button";
-import { logger } from "common/logger";
 
 const PollList = ({ polls_data, delete_Polls }) => {
   const history = useHistory();

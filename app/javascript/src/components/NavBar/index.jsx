@@ -4,7 +4,7 @@ import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
 import authApi from "apis/auth";
 import { resetAuthTokens } from "apis/axios";
 import { Link } from "react-router-dom";
-import Logger from "js-logger";
+import { logger } from "common/logger";
 
 const NavBar = ({ isLoggedIn }) => {
   const userName = getFromLocalStorage("authUserFirstName");
