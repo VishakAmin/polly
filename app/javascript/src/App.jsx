@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { initializeLogger } from "common/logger.js";
+import { initializeLogger } from "common/logger";
 import Dashboard from "components/Dashboard";
 import CreatePoll from "components/Polls/CreatePoll";
 import { ToastContainer } from "react-toastify";
