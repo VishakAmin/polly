@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
+    User.delete_all
     @user = User.new(first_name: "Sam",
                      last_name: "Smith",
                      email: "sam@example.com",
@@ -26,12 +27,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal ["First name can't be blank"], @user.errors.full_messages
   end
 
-
-  def test_user_should_be_not_be_valid_without_last_name
-    @user.last_name = ''
-    assert_not @user.valid?
-    assert_equal ["Last name can't be blank"], @user.errors.full_messages
-  end
 
   def test_user_should_be_not_be_valid_and_saved_without_email
     @user.email = ""

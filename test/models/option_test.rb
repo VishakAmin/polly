@@ -14,14 +14,13 @@ class OptionTest < ActiveSupport::TestCase
     @option = Option.new(content: 'This is a test poll options', poll: @poll)
   end
 
-  def test_option_should_be_not_be_valid_without_option
+  def test_option_should_be_invalid_without_content
     @option.content = ''
     assert @option.invalid?
-    assert_equal ["Options can't be blank"], @poll.errors.full_messages
   end
 
   def test_option_content_should_not_exceed_maximum_length
-    @option.content = 'a' * 120
+    @option.content = 'a' * 121
     assert @option.invalid?
   end
 

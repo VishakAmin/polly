@@ -8,7 +8,8 @@ class UserTest < ActiveSupport::TestCase
       email: 'sam@example.com',
       password: 'welcome',
       password_confirmation: 'welcome')
-    Poll.delete_all
+
+      Poll.delete_all
 
     @poll = Poll.new(title: 'This is a new Testing Poll', user: @user)
   end
@@ -18,13 +19,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_value_of_title_assigned
-    assert_equal "This is a new Testing Poll", @poll.title
+    assert_equal 'This is a new Testing Poll', @poll.title
   end
 
-  def test_poll_should_be_not_be_valid_without_title
+  def test_poll_should_not_be_valid_without_title
     @poll.title = ''
-    assert_not @poll.valid?
-    assert_equal ["Title can't be blank"], @poll.errors.full_messages
+    assert @poll.invalid?
   end
 
 end
