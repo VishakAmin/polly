@@ -34,27 +34,27 @@ const NavBar = ({ isLoggedIn }) => {
               <NavItem name="Polly" path="/" />
             </div>
           </div>
-          <div className="flex items-center justify-end ">
-            <span
-              className="inline-flex items-center px-2 pt-1 text-sm font-regular leading-5 text-bb-gray-600
-              text-opacity-50 transition duration-150 ease-in-out border-b-2 border-transparent focus:outline-none
-              focus:text-bb-gray-700"
-            >
-              {userName}
-            </span>
-          </div>
           <div className="flex items-center justify-end">
             {isLoggedIn ? (
-              <a
-                onClick={handleLogout}
-                className="inline-flex items-center px-1 pt-1 text-sm
+              <>
+                <span
+                  className="inline-flex items-center px-2 pt-1 text-sm font-regular leading-5 text-bb-gray-600
+                          text-opacity-50 transition duration-150 ease-in-out border-b-2 border-transparent focus:outline-none
+                          focus:text-bb-gray-700"
+                >
+                  {userName}
+                </span>
+                <a
+                  onClick={handleLogout}
+                  className="inline-flex items-center px-1 pt-1 text-sm
               font-semibold leading-5 text-bb-gray-600 text-opacity-50
               transition duration-150 ease-in-out border-b-2
               border-transparent hover:text-bb-gray-600 focus:outline-none
               focus:text-bb-gray-700 cursor-pointer"
-              >
-                Logout
-              </a>
+                >
+                  Logout
+                </a>
+              </>
             ) : (
               <Link
                 to="/login"

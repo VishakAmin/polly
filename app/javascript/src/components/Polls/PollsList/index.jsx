@@ -18,20 +18,20 @@ const PollList = ({ polls_data, delete_Polls }) => {
   };
 
   return (
-    <ul className="mb-8">
+    <ul className="mb-8 mt-5">
       {polls_data.map(poll => (
         <li
           key={poll.id}
-          className="flex justify-between items-center py-4 border-b"
+          className="bg-purple-100 flex justify-between items-center py-4 px-2 border-b rounded-md hover:bg-opacity-75 cursor-default "
         >
           <span
             onClick={() => showpolls(poll.id)}
-            className="hover:text-purple-700 text-lg"
+            className="hover:text-bb-purple text-lg font-medium cursor-pointer   align-middle pr-2 text-xl"
           >
             {poll.title}
           </span>
           {userId == poll.user_id ? (
-            <div className="flex justify-between items-center gap-x-2">
+            <div className="flex justify-between  gap-x-2">
               <Button
                 size="small"
                 onClick={() => updatePolls(poll.id)}

@@ -26,7 +26,14 @@ const PollForm = ({
         placeholder="Enter the title"
         onChange={e => setTitle(e.target.value)}
       />
-      <div className="border-aqua">
+
+      <div className="border-black">
+        <label
+          className="block text-sm font-medium
+              leading-5 text-bb-gray-700 mt-12"
+        >
+          Options:
+        </label>
         <Input
           label="Option 1"
           value={options[0].content}
@@ -40,8 +47,8 @@ const PollForm = ({
           onChange={e => handleOptionsChange(e, 1)}
         />
         <Input
-          label="Option 3"
           value={options[2].content}
+          label="Option 3"
           placeholder="Enter the option 3"
           onChange={e => handleOptionsChange(e, 2)}
         />

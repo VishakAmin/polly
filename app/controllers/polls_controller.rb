@@ -67,7 +67,7 @@ class PollsController < ApplicationController
   end
 
   def load_responses
-    @responses = Response.where(poll_id: params[:id], user_id: @current_user.id)
+    @responses = Response.where(poll_id: params[:id])
     rescue ActiveRecord::RecordNotFound => errors
       render json: {errors: errors }
   end
