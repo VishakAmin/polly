@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Container from "components/Container";
 import PollForm from "components/Polls/Form/PollForm";
 import pollsApi from "apis/polls";
-import { logger } from "common/logger";
 
 const CreatePoll = ({ history }) => {
   const [title, setTitle] = useState("");

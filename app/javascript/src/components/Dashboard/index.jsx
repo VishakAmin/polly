@@ -5,9 +5,6 @@ import PollList from "components/Polls/PollsList";
 import pollsApi from "apis/polls";
 import PageLoader from "components/PageLoader";
 import { isNil, isEmpty, either } from "ramda";
-import { logger } from "common/logger";
-
-import useHistory from "react-router-dom";
 
 const Dashboard = ({ history }) => {
   const [polls, setPolls] = useState([]);

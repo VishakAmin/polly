@@ -36,11 +36,6 @@
   "scripts": {
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "app/**/*.{html,md,js,jsx,json,yml}": [
       "prettier --write",

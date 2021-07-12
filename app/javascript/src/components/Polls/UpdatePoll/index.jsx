@@ -5,7 +5,6 @@ import Container from "components/Container";
 import PollForm from "components/Polls/Form/PollForm";
 import pollsApi from "apis/polls";
 import PageLoader from "components/PageLoader";
-import { logger } from "common/logger";
 
 const UpdatePoll = ({ history }) => {
   const [title, setTitle] = useState("");
