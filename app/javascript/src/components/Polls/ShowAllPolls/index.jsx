@@ -103,7 +103,7 @@ const ShowAllPolls = () => {
 
       <div className="flex justify-center px-6">
         {isVoted ? (
-          <p>Thank for Votings..!!!</p>
+          <p>Thank for Votings..!!</p>
         ) : (
           <Button
             loading={loading}
