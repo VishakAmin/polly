@@ -63,7 +63,7 @@ const NavBar = ({ isLoggedIn }) => {
                 border-transparent hover:text-bb-gray-600 focus:outline-none
                 focus:text-bb-gray-700 cursor-pointer"
               >
-                LogIn
+                Login
               </Link>
             )}
           </div>

@@ -6,7 +6,7 @@ class PollTest < ActiveSupport::TestCase
     @user = User.new(first_name: 'Sam',
       last_name: 'Smith',
       email: 'sam@example.com',
-      password: 'welcome',
+      password: 'welcome',sh
       password_confirmation: 'welcome')
 
       Poll.delete_all
