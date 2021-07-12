@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render status: :ok, json: { notice: 'User was successfully created!' }
+      render status: :ok, json: {  
+        auth_token: @user.authentication_token,
+        user_id: @user.id,
+        user_first_name: @user.first_name, }
     else
       render status: :unprocessable_entity, json: {
         errors: @user.errors.full_messages.to_sentence

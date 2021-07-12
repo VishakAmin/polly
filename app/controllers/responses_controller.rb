@@ -1,26 +1,27 @@
 class ResponsesController < ApplicationController
-  before_action :authenticate_user_using_x_auth_token, only: create
+  before_action :authenticate_user_using_x_auth_token, only: %i[create]
+  before_action :response_exist, only: %i[create]
 
   def create
     @response = Response.new(response_params)
     
     if @response.save
-      render status: ok, json: { isVoted : true}
+      render status: :ok, json: { isVoted: true}
     else
-      errors = @respond.errors.full_messages
+      errors = @response.errors.full_messages
       render status: :unprocessable_entity, json: { errors: errors }
     end
   end
 
   private
 
-  def respond_params
-    params.require(:response).permit(:poll_id, :option_id)
+  def response_params
+    params.require(:response).permit(:poll_id, :option_id).merge(user_id: @current_user.id)
   end
 
   def response_exist
     response = Response.where(
-      poll_id: respond_params[:poll_id]
+      poll_id: response_params[:poll_id],
       user_id: @current_user.id
     )
 
