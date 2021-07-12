@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class PollTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(first_name: 'Sam',
