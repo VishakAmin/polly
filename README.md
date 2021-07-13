@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![VishakAmin](https://circleci.com/gh/VishakAmin/polly.svg?style=svg&circle-token=31d39b1bbb42441c2177f51f9c57fc55597257d2)](https://app.circleci.com/pipelines/github/VishakAmin)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# [Live Demo](https://vishak-polly.herokuapp.com/)

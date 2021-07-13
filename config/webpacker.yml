@@ -22,8 +22,8 @@ default: &default
   static_assets_extensions:
     - .jpg
     - .jpeg
-    - .png
     - .gif
+    - .png
     - .tiff
     - .ico
     - .svg
@@ -34,6 +34,7 @@ default: &default
     - .woff2
 
   extensions:
+    - .jsx
     - .mjs
     - .js
     - .sass
@@ -71,10 +72,9 @@ development:
     quiet: false
     pretty: false
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     watch_options:
-      ignored: '**/node_modules/**'
-
+      ignored: "**/node_modules/**"
 
 test:
   <<: *default
